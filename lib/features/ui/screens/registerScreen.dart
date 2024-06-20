@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:gym_app/features/ui/index.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class registerScreen extends StatefulWidget {
+  const registerScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<registerScreen> createState() => _registerScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _registerScreenState extends State<registerScreen> {
   @override
   Widget build(BuildContext context) {
     TextEditingController emailController = TextEditingController();
@@ -33,7 +33,7 @@ class _LoginScreenState extends State<LoginScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 const Text(
-                  "Iniciar sesión",
+                  "Registrate",
                   textAlign: TextAlign.left,
                   style: TextStyle(
                     fontSize: 30,
@@ -102,14 +102,32 @@ class _LoginScreenState extends State<LoginScreen> {
                             const Color.fromARGB(255, 239, 239, 239),
                         fillColor: const Color.fromARGB(255, 255, 251, 251),
                       ),
-                      Align(
+                      const Align(
                         alignment: Alignment.centerLeft,
-                        child: TextButton(
-                          onPressed: () {},
-                          child: const Text("¿Olvidaste tu contraseña?",
-                              style: TextStyle(color: Colors.blue)),
+                        child: Text(
+                          "Confirmar contraseña",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      CustomTextField(
+                        obsCureText: true,
+                        controller: passwordController,
+                        hintText: "***********",
+                        prefixIcon: Icons.lock_outline_rounded,
+                        prefixIconColor: Colors.black,
+                        hintTextColor: const Color.fromARGB(255, 119, 113, 113),
+                        enabledBorderColor:
+                            const Color.fromARGB(255, 239, 239, 239),
+                        fillColor: const Color.fromARGB(255, 255, 251, 251),
+                      ),
+                      
                       const SizedBox(
                         height: 5,
                       ),
@@ -128,17 +146,17 @@ class _LoginScreenState extends State<LoginScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Text("¿No tienes una cuenta?"),
+                          const Text("¿Ya tienes una cuenta?"),
                           TextButton(
                             onPressed: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const registerScreen(),
+                              builder: (context) => const LoginScreen(),
                             ),
                           );
                         },
-                            child: const Text("Regístrate aqui"),
+                            child: const Text("Inicia sesión aquí"),
                           ),
                         ],
                       ),
