@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gym_app/features/ui/index.dart';
+import 'package:gym_app/features/ui/widgets/custom_title.dart';
+import 'package:gym_app/utils/app_colors.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -17,7 +19,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: const Color.fromARGB(255, 63, 187, 133),
+        backgroundColor: AppColors.backgroundPrimary,
         body: Center(
           child: Container(
             width: MediaQuery.of(context).size.width * 0.9,
@@ -25,22 +27,14 @@ class _LoginScreenState extends State<LoginScreen> {
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(
-                  20), // Ajusta el valor para más o menos redondeo
+                  10), // Ajusta el valor para más o menos redondeo
             ),
             margin: const EdgeInsets.symmetric(horizontal: 20.0),
             padding: const EdgeInsets.all(15.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                const Text(
-                  "Iniciar sesión",
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.green,
-                  ),
-                ),
+                const CustomTitle(title: 'Iniciar sesión'),
                 const SizedBox(height: 20),
                 Form(
                   child: Column(
@@ -102,6 +96,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             const Color.fromARGB(255, 239, 239, 239),
                         fillColor: const Color.fromARGB(255, 255, 251, 251),
                       ),
+
+                      const SizedBox(height: 10),
                       Align(
                         alignment: Alignment.centerLeft,
                         child: TextButton(
@@ -111,10 +107,13 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       const SizedBox(
-                        height: 5,
+                        height: 10,
                       ),
                       CustomElevatedButton(
                         text: 'Entrar',
+                        textStyle: const TextStyle(
+                          color: AppColors.textColorSecondary,
+                        ),
                         onPressed: () {
                           Navigator.push(
                             context,
@@ -125,20 +124,24 @@ class _LoginScreenState extends State<LoginScreen> {
                           // print("press");
                         },
                       ),
+                      const SizedBox(height: 10),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           const Text("¿No tienes una cuenta?"),
                           TextButton(
                             onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const registerScreen(),
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const Registerscreen(),
+                                ),
+                              );
+                            },
+                            child: const Text(
+                              "Regístrate aqui",
+                              style: TextStyle(color: Color(0XFF0071C2)),
                             ),
-                          );
-                        },
-                            child: const Text("Regístrate aqui"),
                           ),
                         ],
                       ),

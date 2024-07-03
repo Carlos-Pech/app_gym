@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gym_app/features/ui/index.dart';
+import 'package:gym_app/utils/app_colors.dart';
 
 class CustomCard extends StatelessWidget {
   final String imageUrl;
@@ -33,7 +34,7 @@ class CustomCard extends StatelessWidget {
               height: 120,
               width: double.infinity,
               decoration: BoxDecoration(
-                color: Colors.grey[300],
+                color: Colors.grey[100],
               ),
               child: Image.network(
                 imageUrl,
@@ -58,7 +59,7 @@ class CustomCard extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
-                    color: Colors.green,
+                    color: AppColors.titlePrimary,
                   ),
                 ),
               ],

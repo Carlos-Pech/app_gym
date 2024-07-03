@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gym_app/features/ui/index.dart';
-
+import 'package:gym_app/features/ui/widgets/custom_app_bar.dart';
+import 'package:gym_app/features/ui/widgets/custom_drawer.dart';
+import 'package:gym_app/features/ui/widgets/custom_title.dart';
+import 'package:gym_app/utils/app_colors.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -22,42 +25,17 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "Lalo's Gym",
-          style: TextStyle(
-            color: Colors.green,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        backgroundColor: Colors.white,
-        automaticallyImplyLeading: false,
-        actions: [
-          IconButton(
-            icon: const Icon(
-              Icons.menu_outlined,
-              color: Colors.black,
-            ),
-            onPressed: () {},
-          ),
-        ],
-      ),
+      backgroundColor: AppColors.backgroundTerteary,
+      appBar: const CustomAppBar(),
+      drawer: const CustomDrawer(),
       body: Padding(
-        padding: const EdgeInsets.all(28.0),
+        padding: const EdgeInsets.all(24.0),
         child: Center(
           child: Column(
             children: <Widget>[
               const Align(
                 alignment: Alignment.centerLeft,
-                child: Text(
-                  "Productos",
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.green,
-                  ),
-                ),
+                child: CustomTitle(title: "Productos"),
               ),
               Row(
                 children: [
@@ -95,6 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(height: 20),
               Expanded(
                 child: GridView.builder(
+                  
                   itemCount: 10,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
@@ -105,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   itemBuilder: (BuildContext context, int index) {
                     return CustomCard(
                       imageUrl:
-                          'https://i.pinimg.com/736x/fd/80/1a/fd801a11afa1e6867a5cfc04d3b9be3f.jpg',
+                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaCYt_Skg_DdS56k7TJ6K6bjyh2l-8W_3_WA&s',
                       title: 'Producto',
                       price: '1500',
                       onPressed: () {},

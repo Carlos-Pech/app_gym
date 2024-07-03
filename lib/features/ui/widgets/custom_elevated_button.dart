@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:gym_app/utils/app_colors.dart';
 
-class CustomElevatedButtonIcon extends StatelessWidget {
-  final Text text;
+class CustomElevatedButton extends StatelessWidget {
+  final String text;
   final VoidCallback onPressed;
+  final bgColor = const Color.fromARGB(255, 6, 16, 40);
   final Color? color;
   final double? width;
   final double? height;
   final TextStyle? textStyle;
 
-  const CustomElevatedButtonIcon({
-    super.key,
+  const CustomElevatedButton({
     required this.text,
     required this.onPressed,
+    super.key,
     this.color,
     this.width,
     this.height,
@@ -20,27 +22,24 @@ class CustomElevatedButtonIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton.icon(
+
+    Color colorButton = AppColors.buttonPrimary;
+    return ElevatedButton(
       onPressed: onPressed,
       style: ButtonStyle(
         backgroundColor: WidgetStateProperty.all<Color>(
-          color ?? Colors.orange,
+          color ??  colorButton,
         ),
         minimumSize: WidgetStateProperty.all<Size>(
           Size(width ?? double.infinity, height ?? 50),
         ),
         shape: WidgetStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(10),
           ),
         ),
-        padding: WidgetStateProperty.all<EdgeInsetsGeometry>(
-          const EdgeInsets.symmetric(
-              vertical: 8, horizontal: 6), // Ajusta el padding aquí
-        ),
       ),
-      label: text,
-      icon: const Icon(Icons.add),
+      child: Text(text, style: textStyle),
     );
   }
 }

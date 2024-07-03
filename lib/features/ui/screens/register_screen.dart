@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:gym_app/features/ui/index.dart';
+import 'package:gym_app/features/ui/widgets/custom_title.dart';
+import 'package:gym_app/utils/app_colors.dart';
 
-class registerScreen extends StatefulWidget {
-  const registerScreen({super.key});
+class Registerscreen extends StatefulWidget {
+  const Registerscreen({super.key});
 
   @override
-  State<registerScreen> createState() => _registerScreenState();
+  State<Registerscreen> createState() => _RegisterscreenState();
 }
 
-class _registerScreenState extends State<registerScreen> {
+class _RegisterscreenState extends State<Registerscreen> {
   @override
   Widget build(BuildContext context) {
     TextEditingController emailController = TextEditingController();
@@ -17,30 +19,22 @@ class _registerScreenState extends State<registerScreen> {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: const Color.fromARGB(255, 63, 187, 133),
+        backgroundColor: AppColors.backgroundPrimary,
         body: Center(
           child: Container(
             width: MediaQuery.of(context).size.width * 0.9,
-            height: MediaQuery.of(context).size.height * 0.6,
+            height: MediaQuery.of(context).size.height * 0.7,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(
-                  20), // Ajusta el valor para más o menos redondeo
+                  10), // Ajusta el valor para más o menos redondeo
             ),
             margin: const EdgeInsets.symmetric(horizontal: 20.0),
             padding: const EdgeInsets.all(15.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                const Text(
-                  "Registrate",
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.green,
-                  ),
-                ),
+                const CustomTitle(title: 'Registrarse'),
                 const SizedBox(height: 20),
                 Form(
                   child: Column(
@@ -127,12 +121,14 @@ class _registerScreenState extends State<registerScreen> {
                             const Color.fromARGB(255, 239, 239, 239),
                         fillColor: const Color.fromARGB(255, 255, 251, 251),
                       ),
-                      
                       const SizedBox(
-                        height: 5,
+                        height: 10,
                       ),
                       CustomElevatedButton(
-                        text: 'Entrar',
+                        text: 'Registrarse',
+                        textStyle: const TextStyle(
+                          color: Colors.white,
+                        ),
                         onPressed: () {
                           Navigator.push(
                             context,
@@ -143,20 +139,24 @@ class _registerScreenState extends State<registerScreen> {
                           // print("press");
                         },
                       ),
+                      const SizedBox(height: 10),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           const Text("¿Ya tienes una cuenta?"),
                           TextButton(
                             onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const LoginScreen(),
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const LoginScreen(),
+                                ),
+                              );
+                            },
+                            child: const Text(
+                              "Inicia sesión aquí",
+                              style: TextStyle(color: Color(0XFF0071C2)),
                             ),
-                          );
-                        },
-                            child: const Text("Inicia sesión aquí"),
                           ),
                         ],
                       ),
