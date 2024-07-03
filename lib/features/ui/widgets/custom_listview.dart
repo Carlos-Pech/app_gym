@@ -12,7 +12,7 @@ class CustomerListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       shrinkWrap: true,
-      itemCount: 10 ,
+      itemCount: 3 ,
       itemBuilder: (context, index) {
         return Container(
           margin: const EdgeInsets.symmetric(vertical: 8),
