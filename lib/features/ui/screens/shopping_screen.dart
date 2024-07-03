@@ -67,7 +67,7 @@ class ShoppingScreen extends StatelessWidget {
                 ),
                 const Row(
                   children: [
-                     Text(
+                    Text(
                       "Total:",
                       style:
                           TextStyle(fontSize: 19, fontWeight: FontWeight.bold),

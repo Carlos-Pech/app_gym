@@ -34,18 +34,23 @@ class CustomDrawer extends StatelessWidget {
             onTap: () {
               Navigator.pushNamed(context, '/order-history');
             },
-            
           ),
-            ListTile(
+          ListTile(
             title: const Text('Datos de perfil'),
             onTap: () {
-              Navigator.pushNamed(context, '/shopping');
+              Navigator.pushNamed(context, '/userprofile');
             },
           ),
           ListTile(
             title: const Text('Carrito de compras'),
             onTap: () {
               Navigator.pushNamed(context, '/shopping');
+            },
+          ),
+          ListTile(
+            title: const Text('Billetera'),
+            onTap: () {
+              Navigator.pushNamed(context, '/wallet');
             },
           ),
         ],
